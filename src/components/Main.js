@@ -175,6 +175,23 @@ const SharedActor = styled.div`
     outline: none;
   }
 `;
-const Description = styled.div``;
-const SharedImg = styled.div``;
+const Description = styled.div`
+  padding: 0 16px;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 14px;
+  text-align: left;
+`;
+const SharedImg = styled.div`
+  margin-top: 8px;
+  width: 100%;
+  display: block;
+  position: relative;
+  background-color: #f9fafb;
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100;
+  }
+`;
 export default Main;
