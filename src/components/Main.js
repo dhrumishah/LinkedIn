@@ -48,6 +48,18 @@ const Main = (props) => {
               <img src="/images/shared-img.png" />
             </a>
           </SharedImg>
+          <SocialCounts>
+            <li>
+              <button>
+                <img src="/images/like-button.svg" height={20} />
+                <img src="/images/clapping-hand.svg" height={20} />
+                <span>75</span>
+              </button>
+            </li>
+            <li>
+              <a>2 comments</a>
+            </li>
+          </SocialCounts>
         </Article>
       </div>
     </Container>
@@ -192,6 +204,23 @@ const SharedImg = styled.div`
     object-fit: contain;
     width: 100%;
     height: 100;
+  }
+`;
+const SocialCounts = styled.ul`
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-start;
+  overflow: auto;
+  margin: 0 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9e5df;
+  list-style: none;
+  li {
+    margin-right: 5px;
+    fot-size: 12px;
+    button {
+      display: flex;
+    }
   }
 `;
 export default Main;
