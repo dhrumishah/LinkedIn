@@ -42,7 +42,7 @@ const Main = (props) => {
               <img src="/images/ellipsis.svg" height={20} />
             </button>
           </SharedActor>
-          <Description>Desc</Description>
+          <Description>#newprofilepic</Description>
           <SharedImg>
             <a>
               <img src="/images/shared-img.png" />
@@ -60,6 +60,25 @@ const Main = (props) => {
               <a>2 comments</a>
             </li>
           </SocialCounts>
+          <SocialActions>
+            <button>
+              <img src="/images/like-icon.svg" height={20} />
+              <span>like</span>
+            </button>
+            <button>
+              <img src="/images/comments-icon.svg" height={20} />
+              <span>comments</span>
+            </button>
+
+            <button>
+              <img src="/images/share-icon.svg" height={20} />
+              <span>Share</span>
+            </button>
+            <button>
+              <img src="/images/send-icon.svg" height={20} />
+              <span>send</span>
+            </button>
+          </SocialActions>
         </Article>
       </div>
     </Container>
@@ -220,6 +239,25 @@ const SocialCounts = styled.ul`
     fot-size: 12px;
     button {
       display: flex;
+    }
+  }
+`;
+const SocialActions = styled.div`
+  align-items: center;
+  display: flex;
+  justift-content: flex-start;
+  margin: 0;
+  min-height: 40px;
+  padding: 4px 8px;
+  button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px;
+    color: #0a66c2;
+    @media (min-width: 768px) {
+      span {
+        margin-left: 8px;
+      }
     }
   }
 `;
