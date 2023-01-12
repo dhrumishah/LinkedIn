@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { signInAPI } from "../actions/index";
 
 const Login = (props) => {
   return (
@@ -19,7 +20,7 @@ const Login = (props) => {
           <img src="/images/login-hero.svg"></img>
         </Hero>
         <Form>
-          <Google>
+          <Google onClick={() => props.signIn()}>
             <img src="/images/google.svg" />
             Sign in with Google
           </Google>
@@ -163,5 +164,7 @@ const Google = styled.button`
 const mapStatetoProps = (state) => {
   return {};
 };
-const mapDispatchProps = (state) => ({});
+const mapDispatchProps = (dispatch) => ({
+  signIn: () => dispatch(signInAPI()),
+});
 export default connect(mapStatetoProps, mapDispatchProps)(Login);
