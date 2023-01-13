@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 const Home = (props) => {
   return (
     <Container>
-      {!props.user && <Redirect to="/" />}
+      {!props.user && <Redirect to="/home" />}
       <Section>
         <h5>
           <a>Hirring in a hurry? -</a>
