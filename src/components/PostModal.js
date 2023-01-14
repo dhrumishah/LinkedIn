@@ -2,39 +2,57 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const PostModal = (props) => {
+  const [editorText, setEditorText] = useState("");
+
+  const reset = (e) => {
+    setEditorText("");
+    props.handleClick(e);
+  };
   return (
-    <Container>
-      <Content>
-        <Header>
-          <h2>Create a post</h2>
-          <button>
-            <img src="/images/close-icon.svg" height={20} />
-          </button>
-        </Header>
-        <SharedContent>
-          <UserInfo>
-            <img src="/images/user.svg" />
-            <span>Name</span>
-          </UserInfo>
-        </SharedContent>
-        <ShareCreations>
-          <AttachAssets>
-            <AssetButton>
-              <img src="/images/photo-icon.svg" height={20} />
-            </AssetButton>
-            <AssetButton>
-              <img src="/images/video-icon.svg" height={20} />
-            </AssetButton>
-          </AttachAssets>
-          <ShareComment>
-            <AssetButton>
-              <img src="/images/comment-icon.svg" height={20} />
-            </AssetButton>
-          </ShareComment>
-          <PostButton>Post</PostButton>
-        </ShareCreations>
-      </Content>
-    </Container>
+    <>
+      {props.showModal === "open" && (
+        <Container>
+          <Content>
+            <Header>
+              <h2>Create a post</h2>
+              <button onClick={(event) => reset(event)}>
+                <img src="/images/close-icon.svg" height={20} />
+              </button>
+            </Header>
+            <SharedContent>
+              <UserInfo>
+                <img src="/images/user.svg" />
+                <span>Name</span>
+              </UserInfo>
+              <Editor>
+                <textarea
+                  value={editorText}
+                  onChange={(e) => setEditorText(e.target.value)}
+                  placeholder="What do you want to talk about?"
+                  autoFocus={true}
+                ></textarea>
+              </Editor>
+            </SharedContent>
+            <ShareCreations>
+              <AttachAssets>
+                <AssetButton>
+                  <img src="/images/photo-icon.svg" height={20} />
+                </AssetButton>
+                <AssetButton>
+                  <img src="/images/video-icon.svg" height={20} />
+                </AssetButton>
+              </AttachAssets>
+              <ShareComment>
+                <AssetButton>
+                  <img src="/images/comment-icon.svg" height={20} />
+                </AssetButton>
+              </ShareComment>
+              <PostButton>Post</PostButton>
+            </ShareCreations>
+          </Content>
+        </Container>
+      )}
+    </>
   );
 };
 
@@ -76,7 +94,8 @@ const Header = styled.div`
     width: 40px;
     min-width: auto;
     color: rgba(0, 0, 0, 0.15);
-    svg {
+    svg,
+    img {
       pointer-events: none;
     }
   }
@@ -150,6 +169,20 @@ const PostButton = styled.button`
   &:hover {
     background: #004182;
     cursor: pointer;
+  }
+`;
+const Editor = styled.div`
+  paddding: 12px 24px;
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+  }
+  input {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    margin-bottom: 20px;
   }
 `;
 export default PostModal;
