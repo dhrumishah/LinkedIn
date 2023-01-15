@@ -15,6 +15,7 @@ const Main = (props) => {
         break;
       case "close":
         setShowModal("open");
+        break;
       default:
         setShowModal("close");
         break;
