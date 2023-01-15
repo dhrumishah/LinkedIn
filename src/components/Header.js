@@ -65,7 +65,7 @@ const Header = (props) => {
                   <span>Me</span>
                   <img src="/images/down-icon.svg" />
                 </a>
-                <SignOut onclick={() => props.signOut()}>
+                <SignOut onClick={() => props.SignOut()}>
                   <a>Sign Out</a>
                 </SignOut>
               </User>
